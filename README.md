@@ -105,6 +105,7 @@ sysrsync.run(source='/home/user/files',
 | cwd  | str  | `os.getcwd()` | working directory in which subprocess will run the rsync command |
 | strict  | bool | `True` | raises `RsyncError` when rsync return code is different than 0  |
 | verbose | bool | `False` | verbose mode: currently prints rsync command before executing |
+| capture_output | bool | `False` | capture execution output |
 | **kwargs | dict | Not Applicable | arguments that will be forwarded to call to `sysrsync.get_rsync_command` |
 
 **returns**: `subprocess.CompletedProcess`
