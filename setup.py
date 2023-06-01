@@ -9,6 +9,7 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="sysrsync",
     version=pyproject["tool"]["poetry"]["version"],
+    setup_requires=['toml'],
     author="Gabriel Chamon",
     author_email="gchamon@live.com",
     description="Python module that wraps system calls to rsync",
