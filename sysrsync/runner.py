@@ -5,7 +5,7 @@ from sysrsync.command_maker import get_rsync_command
 from sysrsync.exceptions import RsyncError
 
 
-def run(cwd=os.getcwd(), strict=True, verbose=False, **kwargs):
+def run(cwd=os.getcwd(), strict=True, verbose=False, capture_output=True, **kwargs):
     rsync_command = get_rsync_command(**kwargs)
 
     rsync_string = ' '.join(rsync_command)
@@ -13,7 +13,7 @@ def run(cwd=os.getcwd(), strict=True, verbose=False, **kwargs):
     if verbose is True:
         print(f'[sysrsync runner] running command on "{cwd}":')
         print(rsync_string)
-    process = subprocess.run(rsync_command, cwd=cwd, shell=False)
+    process = subprocess.run(rsync_command, cwd=cwd, shell=False, capture_output=capture_output)
 
     if strict is True:
         code = process.returncode
